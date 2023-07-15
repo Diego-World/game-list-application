@@ -3,6 +3,7 @@ package com.diegogouveia.dslist.services;
 import com.diegogouveia.dslist.dto.GameDTO;
 import com.diegogouveia.dslist.dto.GameMinDTO;
 import com.diegogouveia.dslist.entities.Game;
+import com.diegogouveia.dslist.projections.GameMinProjection;
 import com.diegogouveia.dslist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,11 @@ public class GameService {
         return dto;
     }
 
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId){
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
+        return result.stream().map(x->new GameMinDTO(x)).toList();
+    }
 
 
 }

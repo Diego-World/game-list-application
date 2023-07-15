@@ -1,7 +1,9 @@
 package com.diegogouveia.dslist.services;
 
 import com.diegogouveia.dslist.dto.GameListDTO;
+import com.diegogouveia.dslist.dto.GameMinDTO;
 import com.diegogouveia.dslist.entities.GameList;
+import com.diegogouveia.dslist.projections.GameMinProjection;
 import com.diegogouveia.dslist.repositories.GameListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
